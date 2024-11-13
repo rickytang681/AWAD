@@ -1,12 +1,13 @@
 1. should run wampserver same time. For database.
 
-Lab 01:
+**Lab 01:**
 command to start/run the laravel:
-php artisan serve
+**php artisan serve**
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-*refer folder practical2&3
-Lab 02:
+***refer folder practical2&3
+Lab 02:**
 http://127.0.0.1:8000/home
 + view/aboutUs.blade.php
 + view/contactUs.blade.php
@@ -14,29 +15,30 @@ http://127.0.0.1:8000/home
 + routes/web.php
 = automatic page redirects when another page 
 
-+ php artisan make:controller UserController
++ **php artisan make:controller UserController**
 = create UserController controller
 
 Routing to the Controller: Import UsersController in web.php and create a route that uses the controller:
 + use App\Http\Controllers\UsersController;
 
-+ php artisan make:component Header
++ **php artisan make:component Header**
 = create Header component
 
 + view/userInner.blade.php
 + view/header.blade.php
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-*can refer folder practical2&3 or practical3
-Lab03:
+***can refer folder practical2&3 or practical3
+Lab03:**
 update .env (edit database name)
 create users table
 add function testData in UsercCntroller
-http://127.0.0.1:8000/testData
+**http://127.0.0.1:8000/testData**
 
 create User Model
 app/Models/..
-+ php artisan make:model User
+**+ php artisan make:model User**
 
 Showing a list of users to view 
 - modify userInnner.blade.php
@@ -56,17 +58,18 @@ Define Table Structure:
 + php artisan make:migration create_test_table 
 
 Run Migration:
-+ php artisan migrate –path=/database/migrations/migration_name.php  
+**+ php artisan migrate –path=/database/migrations/migration_name.php  **
 
 Data Seeding
 - adding dummy data into a database table.
-+ php artisan make:seeder TestSeeder
+**+ php artisan make:seeder TestSeeder**
 Database\Seeders\...
-php artisan db:seed --class=TestSeeder
+**php artisan db:seed --class=TestSeeder**
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-*can refer folder practical2&3 or practical3
-Lab04
+***can refer folder practical2&3 or practical3
+Lab04**
 Mass Assignment:
 - User Signup
 
@@ -83,7 +86,7 @@ Creating the Login Form
 
 Middleware
 - filter HTTP requests based on specific conditions
-+ php artisan make:middleware AgeCheck
+**+ php artisan make:middleware AgeCheck**
 app/Http/Middleware/AgeCheck.php
 
 Global Middleware
@@ -101,9 +104,10 @@ Group Middleware
 	\App\Http\Middleware\ageCheck::class,
 ],
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-*can refer folder practical2&3 or practical3
-Lab05
+***can refer folder practical2&3 or practical3
+Lab05**
 Session
 - to track user login or logout
 
