@@ -75,6 +75,42 @@ One-To-One Relationship
 One-To-Many Relationship
 
 
+*can refer folder practical2&3 or practical3
+Lab05
+Working with Forms and Validation
+Creating the Login Form
++ login.blade.php
+
+Middleware
+- filter HTTP requests based on specific conditions
++ php artisan make:middleware AgeCheck
+app/Http/Middleware/AgeCheck.php
+
+Global Middleware
+Register the middleware in 'app/Http/Kernel.php' under $middleware
+- Applies to every request in the application.
++ \App\Http\Middleware\ageCheck::class,
+
+Route middleware
+- Applies to specific routes only.
++ 'protectedPage' => \App\Http\Middleware\ageCheck::class,
+
+Group Middleware
+- Applies to a group of routes.
+'protectedpage'=>[
+	\App\Http\Middleware\ageCheck::class,
+],
+
+
+*can refer folder practical2&3 or practical3
+Lab05
+Session
+- to track user login or logout
+
+Flash Session
+- store data for the next HTTP request only
+
+
 
 
 
