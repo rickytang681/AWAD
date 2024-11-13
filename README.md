@@ -1,13 +1,13 @@
-1. should run wampserver same time. For database.
+1. should run wampserver same time. For database.<br>
 
-**Lab 01:**
-command to start/run the laravel:
-**php artisan serve**
+**Lab 01:**<br>
+command to start/run the laravel:<br>
+**php artisan serve**<br>
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-***refer folder practical2&3
-Lab 02:**
+***refer folder practical2&3<br>
+Lab 02:**<br>
 http://127.0.0.1:8000/home
 + view/aboutUs.blade.php
 + view/contactUs.blade.php
