@@ -115,30 +115,222 @@ Flash Session<br>
 - store data for the next HTTP request only<br><br>
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***can refer folder Lab06/practical6<br>
+Lab06 Authentication**<br>
+Create a Laravel Application
++ composer create-project laravel/laravel:8.* practical6
++ composer require laravel/ui --dev
++ php artisan ui vue --auth
++ npm install && npm run dev
+
+If prompted, rerun 
++ npm run dev
+
+Update the .env file with correct database credentials.
++ php artisan make:migration create_admins_table
++ php artisan make:migration create_authors_table
+
+Define the schemas in the migrations:
+admins table & authors table
+
+If using MariaDB or older MySQL versions, add the following in AppServiceProvider.php
+AppServiceProvider.php in App\Providers
+
+run migration
++ php artisan migrate
+
+Create Models
++ php artisan make:model Admin
++ php artisan make:model Author
+modify Admin.php & Author.php
+
+Define Guards
+Update config/auth.php
+
+Modify app/Http/Controllers/Auth/LoginController & RegisterController
+- to handle authentication and registration for admins, authors.
+
+Define Authenticated Pages for User Access
+modify and create files below:
+resources/views/layouts/auth.blade.php
+resources/views/admin.blade.php
+resources/views/author.blade.php
+resources/views/home.blade.php
+
+Define Routes in routes/web.php
+
+Modify RedirectIfAuthenticated.php to handle multiple guards and redirect authenticated users accordingly. The file is located at app/Http/Middleware/RedirectIfAuthenticated.php:
+
+Modify Handler.php to redirect unauthenticated users to their respective login pages based on the URL they tried to access. This file is located at app/Exceptions/Handler.php:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***can refer folder Lab06/practical6<br>
+Lab06 Authorization and RBAC**<br>
+
+Add Roles to User
++ php artisan make:migration add_role_column_to_users_table
+
+Database Migrate
++ php artisan migrate
+
+Create Post Model
++ php artisan make:model Post
+
+Create Post Controller
++ php artisan make:controller PostController
 
 
+Define Gates
+- In the app/Providers/AuthServiceProvider.php, define Gates to check the roles of the users.
+
+Authorize Actions in Blade Template.
+Create Users Testing Data in User Table.
+Authorize Actions in PostController.
+Create Routes for Post Controller
+Authorize Actions in Routes
+
+Authorization Through Policies
+Create Policy
++ php artisan make:policy PostPolicy --model=Post
+
+Register the Policies
+- In app/Providers/AuthServiceProvider.php, register the policy.
+
+Define Policy Methods
+- In app/Policies/PostPolicy.php, define the methods for each action.
+
+Map Controller Methods to Policy Methods
+- In PostController.php, use the policy methods.
+
+Defining Policy in Blade
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***can refer folder Lab07/practical7,8,9&10<br>
+Lab07 Laravel ReactJS CRUD with RESTful API 01**<br>
+
+change Example.js in resources/js/app.js
+
+Pre-Requisite
+- Install Postman application/software into your machine
+- register to use Postman on the web
+- install Postman as an extension/app for your Chrome Browser
+https://www.postman.com/downloads/
+https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop//%40
+
+ReactJS Scaffolding
++ php artisan ui react --auth
++ npm install
++ npm run dev
+
+Modify the Welcome Blade Template
+- Edit the resources/views/welcome.blade.php file
+
+Post Model Mass Assignment
+- In app/Models/Post.php, define fillable fields
+
+Install and Configure Reactstrap
++ npm install reactstrap react react-dom
++ npm install --save bootstrap
+
+Import Bootstrap into your resources/js/app.js
++ import 'bootstrap/dist/css/bootstrap.min.css';
+
+Create a Dummy Table with Reactstrap
+- Build a dummy table in your resources/js/components/Example.js
+
+Rebuild assets:
++ npm run dev
+
+Add a Constructor and State Management
+- Modify the Example component into a class and initialize state
 
 
+Create CRUD Controllers
+- Use the Laravel artisan CLI to generate a controller:
++ php artisan make:controller PostController
+- Add CRUD methods in PostController.
+
+Define API Endpoints
+- In routes/api.php, define routes for your API
+
+Test API with Postman
+- Use Postman to test each API endpoint by sending HTTP requests (GET, POST, PUT, DELETE)
+
+Install Axios for API Communication
++ npm install axios
+
+Display Posts in React
+- Modify the Example component to load data from the API
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***can refer folder Lab07/practical7,8,9&10<br>
+Lab0 Laravel ReactJS CRUD with RESTful API 02**<br>
+
+change Example.js in resources/js/app.js
+
+Setup Modal for Adding a Post
+- Define the Modal through example codes provided in React Bootstrap 4
++ https://reactstrap.github.io/
+
+Add Functionality for Adding a Post
+
+Setup Modal for Editing a Post
+
+Add Delete Post Functionality
+
+Modularize Components
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***can refer folder Lab07/practical7,8,9&10<br>
+Lab09 Laravel REST API Authentication with JWT**<br>
 
 
+Install and Configure JWT Authentication Package
++ composer require tymon/jwt-auth
+
+Register JWT Auth in config/app.php
+
+Publish the package configuration
++ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+Generate a secret key
++ php artisan jwt:secret
 
 
+Define User Model
+- Implement JWTSubject in User model
+
+Configure Auth Guard
+- Update config/auth.php to set up JWT guard
+
+Define Authentication Controller
+- Create AuthController
++ php artisan make:controller AuthController
+- Add authentication logic for login, register, logout, refresh, and user profile.
+
+Define REST API Authentication Endpoints
+- Add routes in routes/api.php
+
+Test REST API Endpoints in Postman:
+- Register User
+- Login User
+- Access User Profile
+- Refresh Token
+- Logout
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
+***can refer folder Lab07/practical7,8,9&10<br>
+Lab10 Laravel REST API Authentication with JWT**<br>
 
 
 
